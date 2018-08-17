@@ -1,4 +1,4 @@
-package com.makenv.chapter_05.test8;
+package com.makenv.chapter_05.test9;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,10 +12,14 @@ public class Test {
         MyCallable myCallable = new MyCallable();
         ExecutorService service = Executors.newCachedThreadPool();
         Future<String> future = service.submit(myCallable);
-        // 没有输出线程运行
-        // cancel中断正在运行的线程
-        // true true
-        // 在线程运行之前取消
+        TimeUnit.SECONDS.sleep(2);
+        /*
+            正在运行中
+            正在运行中
+            正在运行中
+            正在运行中
+            true true
+         */
         System.out.println(future.cancel(true) + " " + future.isCancelled());
     }
 }
