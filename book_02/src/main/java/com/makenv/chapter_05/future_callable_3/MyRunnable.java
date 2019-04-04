@@ -3,13 +3,15 @@ package com.makenv.chapter_05.future_callable_3;
 
 public class MyRunnable implements Runnable {
 
-    private int num1;
+    private Userinfo userinfo;
 
-    public MyRunnable(int num1) {
-        this.num1 = num1;
+    public MyRunnable(Userinfo userinfo) {
+        this.userinfo = userinfo;
     }
 
+    @Override
     public void run() {
-        num1 = num1 + 10;
+        userinfo.setUsername("usernameValue");
+        userinfo.setPassword("passwordValue");
     }
 }
